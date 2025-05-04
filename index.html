@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Housing Altos Don Bosco</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
       crossorigin="anonymous"
     />
-
     <link rel="stylesheet" href="./css/style.css" />
+    <title>Housing Altos Don Bosco</title>
   </head>
-
-  <body>
+  <body id="body">
     <header class="bg-dark text-white shadow fixed-top">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid px-3">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid px-3 ps-3"
+      >
         <button
           class="navbar-toggler"
           type="button"
@@ -29,63 +29,153 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="./pages/contacto.html">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="./pages/imagenes.html">Imágenes</a></li>
-            <li class="nav-item"><a class="nav-link" href="./pages/videos.html">Videos</a></li>
-            <li class="nav-item"><a class="nav-link" href="./pages/sobrenosotros.html">Sobre Nosotros</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/contacto.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/imagenes.html">Imágenes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/videos.html">Videos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/sobrenosotros.html"
+                >Sobre Nosotros</a
+              >
+            </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <main class="container pt5">
+    <main class="container pt-5">
       <h1 class="titulo-principal text-center mb-4">HOUSING ALTOS DON BOSCO</h1>
 
       <!-- Galeria de imagenes -->
-<section id="carousel" class="carousel slide mb-5" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-  </div>
+      <section
+        id="carousel"
+        class="carousel slide mb-5"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="4"
+            aria-label="Slide 5"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to="5"
+            aria-label="Slide 6"
+          ></button>
+        </div>
 
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="./img/home/30.png" class="d-block w-100" alt="Frente del housing">
-    </div>
-    <div class="carousel-item">
-      <img src="./img/home/31.png" class="d-block w-100" alt="Frente con locales">
-    </div>
-    <div class="carousel-item">
-      <img src="./img/home/32.png" class="d-block w-100" alt="Pasillo interno">
-    </div>
-    <div class="carousel-item">
-      <img src="./img/home/33.png" class="d-block w-100" alt="Patio central">
-    </div>
-    <div class="carousel-item">
-      <img src="./img/home/34.png" class="d-block w-100" alt="Cocheras">
-    </div>
-    <div class="carousel-item">
-      <img src="./img/home/35.png" class="d-block w-100" alt="Interior del departamento">
-    </div>
-  </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="./img/home/30.png"
+              class="d-block w-100"
+              alt="Frente del housing"
+              loading="lazy"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./img/home/31.png"
+              class="d-block w-100"
+              alt="Frente con locales"
+              loading="lazy"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./img/home/32.png"
+              class="d-block w-100"
+              alt="Pasillo interno"
+              loading="lazy"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./img/home/33.png"
+              class="d-block w-100"
+              alt="Patio central"
+              loading="lazy"
+            />
+          </div>
+          <div class="carousel-item">
+            <img 
+              src="./img/home/34.png"
+              class="d-block w-100" 
+              alt="Cocheras" 
+              loading="lazy"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./img/home/35.png"
+              class="d-block w-100"
+              alt="Interior del departamento"
+              loading="lazy"
+            />
+          </div>
+        </div>
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Anterior</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Siguiente</span>
-  </button>
-</section>
-
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </section>
 
       <div class="contenedor">
         <!-- Caja de información -->
@@ -147,7 +237,7 @@
             <iframe
               src="https://calendar.google.com/calendar/embed?src=6198c6b438f293d33180e82c46f743024611ef2ff5005b360c039ec8d1057a03%40group.calendar.google.com&amp;ctz=America%2FArgentina%2FBuenos_Aires"
               style="border: 0"
-              height="600"
+              height="400"
               frameborder="0"
               scrolling="no"
             ></iframe>
@@ -195,68 +285,29 @@
         <!-- Redes Sociales -->
         <div class="text-center mt-3">
           <h3 class="text-warning">Síguenos</h3>
-          <a
-            href="https://www.facebook.com/housingaltosdonbosco"
-            target="_blank"
-            class="btn btn-outline-light mx-2"
-          >
-            <img
-              src="./icons/facebook.svg"
-              alt="Facebook"
-              width="24"
-              height="24"
-            />
-          </a>
-          <a
-            href="https://www.instagram.com/housingaltosdonbosco"
-            target="_blank"
-            class="btn btn-outline-light mx-2"
-          >
-            <img
-              src="./icons/instagram.svg"
-              alt="Instagram"
-              width="24"
-              height="24"
-            />
-          </a>
-          <a
-            href="https://twitter.com/housingaltosdonbosco"
-            target="_blank"
-            class="btn btn-outline-light mx-2"
-          >
-            <img
-              src="./icons/twitter.svg"
-              alt="Twitter"
-              width="24"
-              height="24"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/housingaltosdonbosco"
-            target="_blank"
-            class="btn btn-outline-light mx-2"
-          >
-            <img
-              src="./icons/linkedin.svg"
-              alt="LinkedIn"
-              width="24"
-              height="24"
-            />
-          </a>
-          <a
-            href="https://wa.me/+5493525615022"
-            target="_blank"
-            class="btn btn-outline-light mx-2"
-          >
-            <img
-              src="./icons/whatsapp.svg"
-              alt="WhatsApp"
-              width="24"
-              height="24"
-            />
-          </a>
+          <div class="d-flex justify-content-center">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/housingaltosdonbosco" target="_blank" class="btn btn-facebook mx-2">
+              <img src="./icons/facebook.svg" alt="Facebook" width="30" height="30" />
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/housingaltosdonbosco" target="_blank" class="btn btn-instagram mx-2">
+              <img src="./icons/instagram.svg" alt="Instagram" width="30" height="30" />
+            </a>
+            <!-- Twitter -->
+            <a href="https://twitter.com/housingaltosdonbosco" target="_blank" class="btn btn-twitter mx-2">
+              <img src="./icons/twitter.svg" alt="Twitter" width="30" height="30" />
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/housingaltosdonbosco" target="_blank" class="btn btn-linkedin mx-2">
+              <img src="./icons/linkedin.svg" alt="LinkedIn" width="30" height="30" />
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/+5493525615022" target="_blank" class="btn btn-whatsapp mx-2">
+              <img src="./icons/whatsapp.svg" alt="WhatsApp" width="30" height="30" />
+            </a>
+          </div>
         </div>
-      </div>
 
       <!-- Créditos -->
       <div class="text-center mt-3">
