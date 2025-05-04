@@ -6,10 +6,25 @@ body {
   padding: 0;
 }
 
-/* Títulos */
 .titulo-principal {
   font-size: 2.5rem;
   font-weight: bold;
+}
+
+.contenedor {
+  padding: 20px;
+}
+
+main.container {
+  margin-top: 100px;
+}
+
+
+.caja {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Navegación */
@@ -18,23 +33,13 @@ body {
   text-decoration: none;
   padding: 10px 15px;
   transition: background-color 0.3s ease;
+  margin: 20px;
 }
 
 .header__nav-link:hover {
   background-color: #ffc107;
   color: #000;
   border-radius: 5px;
-}
-
-.contenedor {
-  padding: 20px;
-}
-
-.caja {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Formulario */
@@ -70,6 +75,7 @@ body {
 .calendario iframe {
   width: 100%;
   max-width: 100%;
+  height: 400px;
   border-radius: 8px;
 }
 
@@ -83,7 +89,30 @@ footer ul li {
   font-size: 0.9rem;
 }
 
-/* Responsividad*/
+/* Redes sociales */
+.text-center a {
+  border: none;
+  text-decoration: none;
+}
+
+.text-center a img {
+  border: none;
+  border-radius: 50%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.text-center a:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.text-center a.btn {
+  border: none;
+}
+
+/* Media Queries */
+
+/* Hasta 768px */
 @media (max-width: 768px) {
   .header__nav {
     flex-direction: column;
@@ -99,24 +128,16 @@ footer ul li {
     width: 100%;
     text-align: center;
   }
-}
-.calendario iframe {
-  width: 100%;
-  max-width: 100%;
-  height: 400px;
-}
-@media (max-width: 768px) {
+
   .formulario input,
   .formulario textarea {
     margin-bottom: 10px;
   }
-}
-@media (max-width: 768px) {
+
   .titulo-principal {
     font-size: 1.8rem;
   }
-}
-@media (max-width: 768px) {
+
   footer h3 {
     font-size: 1.2rem;
   }
@@ -130,32 +151,10 @@ footer ul li {
     padding: 15px;
   }
 }
+
+/* Hasta 576px */
 @media (max-width: 576px) {
   .text-center a.btn {
     margin: 5px;
   }
-}
-
-/* Redes sociales */
-.text-center a img {
-  border: none;
-  border-radius: 50%;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-
-.text-center a {
-  border: none;
-  text-decoration: none; 
-}
-
-
-.text-center a.btn {
-  border: none;
-}
-
-
-.text-center a:hover img {
-  transform: scale(1.1);
-  filter: brightness(1.2);
 }
