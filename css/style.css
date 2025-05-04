@@ -111,12 +111,6 @@ footer ul li {
   transform: scale(1.1);
   filter: brightness(1.2);
 }
-
-/* Efecto al pasar el ratón */
-.text-center a:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2);
-}
 /* Media Queries */
 
 /* Hasta 768px */
@@ -173,15 +167,19 @@ footer ul li {
   .text-center a.btn {
     margin: 5px;
   }
+
   .text-center a {
-    padding: 8px;
+    padding: 6px;
+    margin: 4px;
   }
+
   .text-center a img {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
-  .text-center a {
-    margin: 5px;
+  .text-center .d-flex {
+    flex-wrap: wrap;
+    gap: 6px;
   }
 }
 
