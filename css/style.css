@@ -159,9 +159,3 @@ footer ul li {
   }
 }
 
-@media (max-width: 992px) {
-  .navbar-nav {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
