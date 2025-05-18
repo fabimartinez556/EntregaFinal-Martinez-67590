@@ -8,35 +8,49 @@
   border-radius: var.$border-radius;
 
   .carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
   .carousel-item {
-    min-width: 100%;
-    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
+    z-index: 0;
+    transition: opacity 1s ease-in-out;
 
     &.active {
+      position: relative;
       opacity: 1;
+      z-index: 1;
     }
 
     img {
       width: 100%;
-      height: auto; 
+      height: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-    }
+      border-radius: var.$border-radius;
+      transition: transform 0.5s ease-in-out;
 
-    @include mix.fade-in(1s, 0.5s);
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
   }
 
   .carousel-indicators {
-    bottom: 10px;
     position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
     gap: 10px;
+    z-index: 2;
 
     li {
       width: 12px;
@@ -61,7 +75,7 @@
     display: none !important;
   }
 
-   .carousel-control-prev-icon,
+  .carousel-control-prev-icon,
   .carousel-control-next-icon {
     display: none !important;
   }

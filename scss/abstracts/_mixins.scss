@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "../abstracts/variables" as var;
 
 // ======================================
@@ -74,7 +75,11 @@ $breakpoints: (
   $transitions: ();
 
   @each $prop in $props {
-    $transitions: append($transitions, "#{$prop} #{$duration} #{$timing}", comma);
+    $transitions: list.append(
+      $transitions,
+      "#{$prop} #{$duration} #{$timing}",
+      $separator: comma
+    );
   }
 
   transition: $transitions;
