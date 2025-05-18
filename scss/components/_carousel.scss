@@ -1,0 +1,68 @@
+@use "sass:color";
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var.$border-radius;
+
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-item {
+    min-width: 100%;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
+
+    img {
+      width: 100%;
+      height: auto; 
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    @include mix.fade-in(1s, 0.5s);
+  }
+
+  .carousel-indicators {
+    bottom: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    li {
+      width: 12px;
+      height: 12px;
+      background-color: var.$primary;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: var.$secondary;
+      }
+
+      &:hover {
+        background-color: color.scale(var.$primary, $lightness: -10%);
+      }
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none !important;
+  }
+
+   .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    display: none !important;
+  }
+}

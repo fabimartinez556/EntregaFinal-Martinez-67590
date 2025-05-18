@@ -1,0 +1,109 @@
+@use "../abstracts/variables" as var;
+
+// ======================================
+// MAPA DE BREAKPOINTS
+// ======================================
+$breakpoints: (
+  small: var.$break-sm,
+  medium: var.$break-md,
+  large: var.$break-lg,
+  xlarge: var.$break-xl,
+);
+
+// ======================================
+// MIXINS
+// ======================================
+
+// Bordes redondeados
+@mixin bordes-redondeados($radius) {
+  border-radius: $radius;
+}
+
+// Fade-in animation
+@mixin fade-in($duration: 0.5s, $delay: 0s, $timing: ease-in-out) {
+  animation: fadeIn $duration $timing $delay forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Slide-in horizontal animation
+@mixin slide-in($duration: 1s, $direction: left, $timing: ease-in-out) {
+  opacity: 0;
+
+  @if $direction == left {
+    animation: slideInLeft $duration $timing forwards;
+  } @else if $direction == right {
+    animation: slideInRight $duration $timing forwards;
+  } @else {
+    @warn "Dirección no soportada: #{$direction}, usando 'left'.";
+    animation: slideInLeft $duration $timing forwards;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Transición estándar
+@mixin transicion-estandar($props, $duration: 0.3s, $timing: ease) {
+  $transitions: ();
+
+  @each $prop in $props {
+    $transitions: append($transitions, "#{$prop} #{$duration} #{$timing}", comma);
+  }
+
+  transition: $transitions;
+}
+
+// Flex centrado
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Media query por breakpoint
+@mixin respond-to($breakpoint, $type: max) {
+  $size: map-get($breakpoints, $breakpoint);
+
+  @if $size {
+    @if $type == max {
+      @media (max-width: $size) {
+        @content;
+      }
+    } @else if $type == min {
+      @media (min-width: $size) {
+        @content;
+      }
+    } @else {
+      @warn "Tipo de media query no válido: #{$type}. Usa 'min' o 'max'.";
+    }
+  } @else {
+    @warn "Breakpoint no definido: #{$breakpoint}";
+  }
+}

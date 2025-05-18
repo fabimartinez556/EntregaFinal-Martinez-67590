@@ -1,0 +1,26 @@
+{
+  "name": "preentrega2-martinez",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch scss/style.scss:css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabimartinez556/PreEntrega2-Martinez.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabimartinez556/PreEntrega2-Martinez/issues"
+  },
+  "homepage": "https://github.com/fabimartinez556/PreEntrega2-Martinez#readme",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.88.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.6"
+  }
+}

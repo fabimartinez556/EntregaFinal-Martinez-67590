@@ -18,7 +18,7 @@
     <title>Housing Altos Don Bosco</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body id="body">
+  <body id="body" class="preload">
     <header class="bg-dark text-white shadow fixed-top">
       <nav
         class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid px-3 ps-3"
@@ -63,14 +63,14 @@
     </header>
 
     <main class="container pt-5">
-      <h1 class="titulo-principal text-center mb-4">
+      <h1 class="titulo-principal text-center mb-4 animate-in">
         Bienvenido a Housing Altos Don Bosco
       </h1>
-      <p class="text-center text-muted">
+      <p class="text-center text-muted animate-in">
         Tu nuevo hogar, con seguridad, confort y todo lo que necesitas.
       </p>
 
-      <!-- Galeria de imagenes -->
+      <!-- Galería de imágenes -->
       <section
         id="carousel"
         class="carousel slide mb-5"
@@ -83,37 +83,37 @@
             data-bs-slide-to="0"
             class="active"
             aria-current="true"
-            aria-label="Slide 1"
+            aria-label="Imagen 1"
           ></button>
           <button
             type="button"
             data-bs-target="#carousel"
             data-bs-slide-to="1"
-            aria-label="Slide 2"
+            aria-label="Imagen 2"
           ></button>
           <button
             type="button"
             data-bs-target="#carousel"
             data-bs-slide-to="2"
-            aria-label="Slide 3"
+            aria-label="Imagen 3"
           ></button>
           <button
             type="button"
             data-bs-target="#carousel"
             data-bs-slide-to="3"
-            aria-label="Slide 4"
+            aria-label="Imagen 4"
           ></button>
           <button
             type="button"
             data-bs-target="#carousel"
             data-bs-slide-to="4"
-            aria-label="Slide 5"
+            aria-label="Imagen 5"
           ></button>
           <button
             type="button"
             data-bs-target="#carousel"
             data-bs-slide-to="5"
-            aria-label="Slide 6"
+            aria-label="Imagen 6"
           ></button>
         </div>
 
@@ -122,49 +122,61 @@
             <img
               src="./img/home/30.webp"
               class="d-block w-100"
-              alt="Vista frontal del Housing Altos Don Bosco, con vegetación y espacio exterior"
+              alt="Vista frontal del Housing Altos Don Bosco"
               loading="eager"
               fetchpriority="high"
+              width="1280"
+              height="720"
             />
           </div>
           <div class="carousel-item">
             <img
               src="./img/home/31.webp"
               class="d-block w-100"
-              alt="Frente de Housing Altos Don Bosco con locales comerciales en la planta baja"
+              alt="Locales comerciales en planta baja"
               loading="lazy"
+              width="1280"
+              height="720"
             />
           </div>
           <div class="carousel-item">
             <img
               src="./img/home/32.webp"
               class="d-block w-100"
-              alt="Pasillo interior del Housing Altos Don Bosco con áreas verdes y caminos pavimentados"
+              alt="Pasillo interior con áreas verdes"
               loading="lazy"
+              width="1280"
+              height="720"
             />
           </div>
           <div class="carousel-item">
             <img
               src="./img/home/33.webp"
               class="d-block w-100"
-              alt="Patio central del complejo Housing Altos Don Bosco con césped y espacio para actividades al aire libre"
+              alt="Patio central del complejo"
               loading="lazy"
+              width="1280"
+              height="720"
             />
           </div>
           <div class="carousel-item">
             <img
               src="./img/home/34.webp"
               class="d-block w-100"
-              alt="Cocheras cubiertas y espacios de estacionamiento en Housing Altos Don Bosco"
+              alt="Cocheras cubiertas"
               loading="lazy"
+              width="1280"
+              height="720"
             />
           </div>
           <div class="carousel-item">
             <img
               src="./img/home/35.webp"
               class="d-block w-100"
-              alt="Interior de un departamento en Housing Altos Don Bosco, mostrando una sala de estar moderna y luminosa"
+              alt="Interior moderno del departamento"
               loading="lazy"
+              width="1280"
+              height="720"
             />
           </div>
         </div>
@@ -174,24 +186,23 @@
           type="button"
           data-bs-target="#carousel"
           data-bs-slide="prev"
+          aria-label="Imagen anterior"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
         </button>
         <button
           class="carousel-control-next"
           type="button"
           data-bs-target="#carousel"
           data-bs-slide="next"
+          aria-label="Imagen siguiente"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Siguiente</span>
         </button>
       </section>
 
       <div class="contenedor">
-        <!-- Caja de información -->
-        <div class="caja mb-5">
+        <div class="caja mb-5 animate-in">
           <p>
             Los proyectos "housing" son desarrollos inmobiliarios urbanos que
             consisten en un conjunto de casas o departamentos dentro de un
@@ -202,8 +213,7 @@
           </p>
         </div>
 
-        <!-- Caja con lista de beneficios -->
-        <div class="caja mb-5">
+        <div class="caja mb-5 animate-left">
           <ul>
             <li>
               <strong>Seguridad:</strong> Cerramientos perimetrales, control de
@@ -228,8 +238,7 @@
           </ul>
         </div>
 
-        <!-- Formulario de Comentarios -->
-        <div class="caja mb-5">
+        <div class="caja mb-5 animate-right">
           <p>Comentarios</p>
           <form class="formulario" method="post" action="#">
             <input type="text" placeholder="Nombre" required />
@@ -238,12 +247,11 @@
               placeholder="Escribe tu comentario..."
               required
             ></textarea>
-            <button class="btn btn-warning">Enviar</button>
+            <button class="btn btn-warning animate-up">Enviar</button>
           </form>
         </div>
 
-        <!-- Calendario -->
-        <div class="caja mb-5">
+        <div class="caja mb-5 animate-zoom">
           <p>DISPONIBILIDAD DE ALQUILERES</p>
           <div class="calendario">
             <iframe
@@ -258,125 +266,131 @@
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
+    <footer class="footer py-4 mt-5">
       <div class="container">
         <div class="row">
-          <!-- Mapa -->
-          <div class="col-12 col-md-6 mb-3">
-            <h2 class="text-warning">Ubicación</h2>
+          <!-- Ubicación -->
+          <div class="col-12 col-md-4 footer-section mb-4 mb-md-0">
+            <h2 class="footer-title">Ubicación</h2>
             <iframe
-              class="calendario"
-              class="w-100"
-              height="300"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3420.0733774408213!2d-64.09088103387803!3d-30.99633110780706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x943263a50d0cbcc3%3A0xb10784076081ae31!2sAv.%20San%20Mart%C3%ADn%20750%2C%20X5223%20Jesus%20Mar%C3%ADa%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1745810782665!5m2!1ses!2sar"
-              title="Mapa de ubicación de Housing Don Bosco"
-              style="border: 0; border-radius: 8px"
-              allowfullscreen=""
+              style="border: 0"
+              width="100%"
+              height="200"
+              allowfullscreen
               loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa ubicación Housing Altos Don Bosco"
             ></iframe>
           </div>
 
           <!-- Contacto -->
-          <div class="col-12 col-md-6">
-            <h2 class="text-warning">Contacto</h2>
-            <p>
-              <strong>HOUSING ALTOS DON BOSCO</strong> ofrece los mejores
-              productos y servicios para nuestros clientes desde 2025.
-            </p>
-            <ul class="list-unstyled">
-              <li>
-                Dirección: Av San Martin 745, Colonia Caroya, Cordoba, Argentina
-              </li>
-              <li>Teléfono: +54 9 3525 615022</li>
-              <li>Email: fabimartinez556@gmail.com</li>
-            </ul>
+          <div class="col-12 col-md-4 footer-section mb-4 mb-md-0">
+            <h2 class="footer-title">Contacto</h2>
+            <address class="footer-contact">
+              <strong>Housing Altos Don Bosco</strong><br />
+              Av. San Martín 745, Colonia Caroya, Córdoba, Argentina<br />
+              Teléfono: <a href="tel:+5493525615022">+54 9 3525 615022</a><br />
+              Email:
+              <a href="mailto:fabimartinez556@gmail.com"
+                >fabimartinez556@gmail.com</a
+              >
+            </address>
           </div>
-        </div>
 
-        <!-- Redes Sociales -->
-        <div class="text-center mt-3">
-          <h2 class="text-warning">Síguenos</h2>
-          <div class="d-flex justify-content-center">
-            <a
-              href="https://www.facebook.com/housingaltosdonbosco"
-              target="_blank"
-              class="btn btn-facebook mx-2"
-            >
-              <img
-                src="./icons/facebook.svg"
-                alt="Facebook"
-                width="30"
-                height="30"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/housingaltosdonbosco"
-              target="_blank"
-              class="btn btn-instagram mx-2"
-            >
-              <img
-                src="./icons/instagram.svg"
-                alt="Instagram"
-                width="30"
-                height="30"
-              />
-            </a>
-            <a
-              href="https://twitter.com/housingaltosdonbosco"
-              target="_blank"
-              class="btn btn-twitter mx-2"
-            >
-              <img
-                src="./icons/twitter.svg"
-                alt="Twitter"
-                width="30"
-                height="30"
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/housingaltosdonbosco"
-              target="_blank"
-              class="btn btn-linkedin mx-2"
-            >
-              <img
-                src="./icons/linkedin.svg"
-                alt="LinkedIn"
-                width="30"
-                height="30"
-              />
-            </a>
-            <a
-              href="https://wa.me/+5493525615022"
-              target="_blank"
-              class="btn btn-whatsapp mx-2"
-            >
-              <img
-                src="./icons/whatsapp.svg"
-                alt="WhatsApp"
-                width="30"
-                height="30"
-              />
-            </a>
+          <!-- Redes Sociales -->
+          <div class="col-12 col-md-4 footer-section redes-sociales">
+            <h2 class="footer-title">Síguenos</h2>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/housingaltosdonbosco"
+                target="_blank"
+                aria-label="Facebook"
+                rel="noopener"
+                class="btn btn-facebook"
+              >
+                <img
+                  src="./icons/facebook.svg"
+                  alt="Facebook - Housing Altos Don Bosco"
+                  class="social-icon"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/housingaltosdonbosco"
+                target="_blank"
+                aria-label="Instagram"
+                rel="noopener"
+                class="btn btn-instagram"
+              >
+                <img
+                  src="./icons/instagram.svg"
+                  alt="Instagram - Housing Altos Don Bosco"
+                  class="social-icon"
+                />
+              </a>
+              <a
+                href="https://twitter.com/housingaltosdonbosco"
+                target="_blank"
+                aria-label="Twitter"
+                rel="noopener"
+                class="btn btn-twitter"
+              >
+                <img
+                  src="./icons/twitter.svg"
+                  alt="Twitter - Housing Altos Don Bosco"
+                  class="social-icon"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/housingaltosdonbosco"
+                target="_blank"
+                aria-label="LinkedIn"
+                rel="noopener"
+                class="btn btn-linkedin"
+              >
+                <img
+                  src="./icons/linkedin.svg"
+                  alt="LinkedIn - Housing Altos Don Bosco"
+                  class="social-icon"
+                />
+              </a>
+              <a
+                href="https://wa.me/5493525615022"
+                target="_blank"
+                aria-label="WhatsApp"
+                rel="noopener"
+                class="btn btn-whatsapp"
+              >
+                <img
+                  src="./icons/whatsapp.svg"
+                  alt="WhatsApp - Housing Altos Don Bosco"
+                  class="social-icon"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Créditos -->
-        <div class="text-center mt-3">
-          <p>&copy; 2025 Housing Don Bosco. Todos los derechos reservados.</p>
+        <div class="copyright mt-4 text-center">
+          <p class="mb-0">
+            &copy; 2025 <strong>Housing Altos Don Bosco</strong>. Todos los
+            derechos reservados.
+          </p>
         </div>
       </div>
     </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
-      integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
-      crossorigin="anonymous"
-    ></script>
+ <!-- JS: Bootstrap + animaciones -->
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
+  crossorigin="anonymous"
+></script>
+<script src="./js/animaciones.js"></script>
+
   </body>
 </html>

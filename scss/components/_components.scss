@@ -1,0 +1,176 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+// ==========================
+// PLACEHOLDERS (para @extend)
+// ==========================
+
+%box-style {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var.$border-radius;
+}
+
+%form-control-style {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: var.$border-radius;
+  font-size: 1rem;
+}
+
+%button-style {
+  background-color: var.$primary;
+  color: var.$body-color;
+  padding: 0.75rem;
+  border: none;
+  @include mix.bordes-redondeados(var.$border-radius);
+  @include mix.transicion-estandar((background-color));
+}
+
+// ==========================
+// COMPONENTES
+// ==========================
+
+body {
+  font-family: var.$font-family-base;
+  background-color: var.$body-bg;
+  margin: 0;
+  padding-top: 80px;
+}
+
+.titulo-principal {
+  font-family: var.$headings-font-family;
+  font-weight: bold;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: var.$text-color;
+  animation: slideIn 1.5s ease-out;
+
+  @media (max-width: var.$break-md) {
+    font-size: 2rem;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.contenedor {
+  padding-bottom: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.caja {
+  @extend %box-style;
+  @include mix.fade-in(1s, 0.3s);
+
+  @media (max-width: var.$break-md) {
+    padding: 1rem;
+  }
+}
+
+.formulario {
+  input,
+  textarea {
+    @extend %form-control-style;
+  }
+
+  .btn {
+    @include mix.transicion-estandar((background-color));
+    @include mix.flex-center;
+  }
+
+  button {
+    @extend %button-style;
+
+    &:hover {
+      background-color: var.$primary-dark;
+      transform: scale(1.03);
+    }
+  }
+
+  @media (max-width: var.$break-md) {
+    input,
+    textarea {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.carousel-item {
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var.$border-radius;
+  }
+}
+
+.calendario {
+  iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    border-radius: var.$border-radius;
+  }
+}
+
+footer {
+  h3 {
+    @media (max-width: var.$break-md) {
+      font-size: 1.2rem;
+    }
+  }
+
+  p,
+  ul li {
+    @media (max-width: var.$break-md) {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.redes-sociales {
+  a {
+    &.btn {
+      @media (max-width: var.$break-md) {
+        padding: 10px;
+      }
+
+      @media (max-width: var.$break-sm) {
+        padding: 8px;
+        margin: 4px;
+      }
+    }
+
+    img {
+      @media (max-width: var.$break-md) {
+        width: 25px;
+        height: 25px;
+      }
+
+      @media (max-width: var.$break-sm) {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  .d-flex {
+    @media (max-width: var.$break-sm) {
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+  }
+}

@@ -1,0 +1,168 @@
+@use "sass:color";
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+// ==========================
+// PLACEHOLDERS
+// ==========================
+
+%btn-base {
+  font-family: var.$font-family-base;
+  padding: 10px 20px;
+  border-radius: var.$border-radius;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+// ==========================
+// BASE GENERAL
+// ==========================
+
+body {
+  font-family: var.$font-family-base;
+  background-color: var.$body-bg;
+  color: var.$body-color;
+}
+
+// ==========================
+// ANIMACIÓN CONTROLADA POR JS
+// ==========================
+
+body.preload {
+  opacity: 0;
+}
+
+body.loaded {
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+}
+
+// ==========================
+// ANIMACIONES PERSONALIZADAS CON VISIBILIDAD
+// ==========================
+
+.animate-in,
+.animate-left,
+.animate-right,
+.animate-up,
+.animate-zoom {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-left {
+  transform: translateX(-30px);
+}
+
+.animate-right {
+  transform: translateX(30px);
+}
+
+.animate-up {
+  transform: translateY(30px);
+}
+
+.animate-zoom {
+  transform: scale(0.95);
+}
+
+// ==========================
+// ENLACES
+// ==========================
+
+a {
+  color: var.$primary;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var.$secondary;
+    text-decoration: underline;
+  }
+}
+
+// ==========================
+// BOTONES GENERALES
+// ==========================
+
+.btn {
+  @extend %btn-base;
+  background-color: var.$primary;
+  color: white;
+
+  &:hover {
+    background-color: var.$primary-dark;
+    transform: scale(1.1);
+  }
+}
+
+// ==========================
+// LISTAS
+// ==========================
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+// ==========================
+// TIPOGRAFÍA
+// ==========================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var.$headings-font-family, sans-serif;
+  font-weight: bold;
+}
+
+// ==========================
+// FORMULARIOS
+// ==========================
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid color.adjust(var.$body-bg, $lightness: -20%);
+  border-radius: var.$border-radius;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+
+  &:focus {
+    border-color: var.$primary;
+    transform: scale(1.05);
+  }
+}
+
+// ==========================
+// IMÁGENES
+// ==========================
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var.$border-radius;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

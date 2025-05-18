@@ -1,0 +1,75 @@
+// ======================================
+// PALETA DE COLORES
+// ======================================
+
+// Colores principales
+$primary: #bda325;
+$primary-dark: #c6a700;
+$secondary: #fbc02d;
+
+// Colores auxiliares
+$body-bg: #f5f5f5;
+$body-color: #212121;
+$text-color: #333333;
+$text-light: #ffffff;
+$footer-bg: #2c2c2c;
+$dark: #212529;
+
+
+// Colores para íconos
+$icon-color-light: #ffffff;
+$icon-color-dark: #212121;
+
+// Sombra base para efectos hover
+$hover-shadow-base: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+// ======================================
+// COLORES REDES SOCIALES
+// ======================================
+
+// HEX (para background-color)
+$facebook: #3b5998;
+$instagram: #c13584;
+$twitter: #1da1f2;
+$linkedin: #0077b5;
+$whatsapp: #25d366;
+
+// RGB como colores Sass válidos para rgba()
+$facebook-rgb: rgb(59, 89, 152);
+$instagram-rgb: rgb(193, 53, 132);
+$twitter-rgb: rgb(29, 155, 240);
+$linkedin-rgb: rgb(0, 119, 181);
+$whatsapp-rgb: rgb(37, 211, 102);
+
+// ======================================
+// TIPOGRAFÍAS
+// ======================================
+
+$font-family-base: "Roboto", sans-serif;
+$headings-font-family: "Montserrat", sans-serif;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-sm: 14px;
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+
+// ======================================
+// OTROS
+// ======================================
+
+// Bordes
+$border-radius: 10px;
+
+// Breakpoints
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
+// Advertencias
+$success: #4caf50;
+$warning: #ff9800;
+$error: #f44336;
+$info: #2196f3;
