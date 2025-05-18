@@ -357,20 +357,22 @@ body {
   height: 100%;
   opacity: 0;
   z-index: 0;
-  transition: opacity 1s ease-in-out;
+  transform: translateX(50px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 .carousel .carousel-item.active {
   position: relative;
   opacity: 1;
   z-index: 1;
+  transform: translateX(0);
 }
 .carousel .carousel-item img {
   width: 100%;
   height: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
-  border-radius: 10px;
   transition: transform 0.5s ease-in-out;
+  border-radius: 10px;
 }
 .carousel .carousel-item img:hover {
   transform: scale(1.03);
