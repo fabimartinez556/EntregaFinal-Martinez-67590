@@ -356,5 +356,17 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/animaciones.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const carousels = document.querySelectorAll(".carousel");
+
+        carousels.forEach((carousel) => {
+          carousel.addEventListener("click", () => {
+            const nextButton = carousel.querySelector(".carousel-control-next");
+            if (nextButton) nextButton.click();
+          });
+        });
+      });
+    </script>
   </body>
 </html>
