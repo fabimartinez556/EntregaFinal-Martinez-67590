@@ -45,11 +45,19 @@ body {
 
 body.preload {
   opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+body.preload * {
+  transition: none !important;
+  animation: none !important;
 }
 
 body.loaded {
   opacity: 1;
-  transition: opacity 0.4s ease-in;
+  visibility: visible;
+  transition: opacity 0.3s ease;
 }
 
 .animate-in,
@@ -349,7 +357,14 @@ body {
   height: auto;
 }
 .carousel .carousel-item {
-  transition: opacity 1.2s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1.6s ease-in-out, visibility 0s linear 1.6s;
+}
+.carousel .carousel-item.active {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1.6s ease-in-out, visibility 0s linear 0s;
 }
 .carousel .carousel-item img {
   width: 100%;
@@ -357,7 +372,7 @@ body {
   aspect-ratio: 16/9;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.5s ease, filter 0.5s ease;
+  transition: transform 0.8s ease, filter 0.8s ease;
 }
 .carousel .carousel-item img:hover {
   transform: scale(1.015);
@@ -371,19 +386,24 @@ body {
   display: flex;
   gap: 10px;
   z-index: 2;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
-.carousel .carousel-indicators li {
+.carousel .carousel-indicators button {
   width: 12px;
   height: 12px;
   background-color: #bda325;
+  border: none;
   border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  opacity: 0.7;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
-.carousel .carousel-indicators li.active {
+.carousel .carousel-indicators button.active {
   background-color: #fbc02d;
+  opacity: 1;
 }
-.carousel .carousel-indicators li:hover {
+.carousel .carousel-indicators button:hover {
   background-color: rgb(170.1, 146.7, 33.3);
 }
 .carousel .carousel-control-prev,

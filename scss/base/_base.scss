@@ -30,14 +30,19 @@ body {
 // ==========================
 // ANIMACIÓN CONTROLADA POR JS
 // ==========================
-
 body.preload {
   opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
-
+body.preload * {
+  transition: none !important;
+  animation: none !important;
+}
 body.loaded {
   opacity: 1;
-  transition: opacity 0.4s ease-in;
+  visibility: visible;
+  transition: opacity 0.3s ease;
 }
 
 // ==========================

@@ -397,6 +397,20 @@
   crossorigin="anonymous"
 ></script>
 <script src="./js/animaciones.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.querySelector("#carousel");
+    const carouselInstance = bootstrap.Carousel.getOrCreateInstance(carousel);
+
+    const images = carousel.querySelectorAll(".carousel-item img");
+
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
+        carouselInstance.next();
+      });
+    });
+  });
+</script>
 
   </body>
 </html>

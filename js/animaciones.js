@@ -1,21 +1,20 @@
 window.addEventListener("load", () => {
-  document.body.classList.remove("preload");
-  document.body.classList.add("loaded");
-});
+  // Asegura que todo esté cargado antes de quitar preload
+  requestAnimationFrame(() => {
+    document.body.classList.remove("preload");
+    document.body.classList.add("loaded");
+  });
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Carrusel (solo si existe en la página)
+  // Carrusel (si existe en la página)
   const carouselElement = document.querySelector("#carousel");
   if (carouselElement) {
     const carousel = bootstrap.Carousel.getOrCreateInstance(carouselElement);
-    carouselElement
-      .querySelector(".carousel-inner")
-      .addEventListener("click", () => {
-        carousel.next();
-      });
+    carouselElement.querySelector(".carousel-inner")?.addEventListener("click", () => {
+      carousel.next();
+    });
   }
 
-  // Intersection Observer
+  // Intersection Observer para animaciones con scroll
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -28,9 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.1 }
   );
 
-  document
-    .querySelectorAll(
-      ".animate-in, .animate-left, .animate-right, .animate-up, .animate-zoom"
-    )
-    .forEach((el) => observer.observe(el));
+  document.querySelectorAll(
+    ".animate-in, .animate-left, .animate-right, .animate-up, .animate-zoom"
+  ).forEach((el) => observer.observe(el));
 });
