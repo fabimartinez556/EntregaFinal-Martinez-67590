@@ -37,42 +37,25 @@
     padding: 0 1rem;
 
     button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.6);
       border: none;
-      padding: 0;
-      background: transparent;
-      opacity: 0.6;
-      border-radius: 4px;
-      overflow: hidden;
-      @include mix.transicion-estandar(opacity, 0.3s, ease);
-
-      img {
-        display: block;
-        width: 60px;
-        height: 40px;
-        object-fit: cover;
-        border: 2px solid transparent;
-        border-radius: 0.5rem;
-        @include mix.transicion-estandar(border-color, 0.3s, ease);
-      }
+      transition: background-color 0.3s ease;
 
       &.active {
-        opacity: 1;
-
-        img {
-          border-color: var.$primary;
-        }
+        background-color: var.$primary;
       }
 
       &:hover {
-        opacity: 1;
+        background-color: rgba(255, 255, 255, 1);
       }
     }
 
+    // Ocultar en dispositivos móviles
     @media (max-width: 768px) {
-      button img {
-        width: 40px;
-        height: 28px;
-      }
+      display: none;
     }
   }
 
