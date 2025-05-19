@@ -1,8 +1,8 @@
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
@@ -152,7 +152,6 @@ img {
   height: auto;
   display: block;
   border-radius: 10px;
-  transition: transform 0.3s ease;
 }
 img:hover {
   transform: scale(1.05);
@@ -291,13 +290,6 @@ body {
   }
 }
 
-.carousel-item img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
 .calendario iframe {
   width: 100%;
   height: 400px;
@@ -349,70 +341,107 @@ body {
 
 .carousel {
   position: relative;
-  overflow: hidden;
-  border-radius: 10px;
+  transition: "all 0.5s ease-in-out";
 }
 .carousel .carousel-inner {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.carousel .carousel-inner .carousel-item img {
   width: 100%;
-  height: auto;
-}
-.carousel .carousel-item {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 1.6s ease-in-out, visibility 0s linear 1.6s;
-}
-.carousel .carousel-item.active {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 1.6s ease-in-out, visibility 0s linear 0s;
-}
-.carousel .carousel-item img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
   object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.8s ease, filter 0.8s ease;
+  display: block;
+  transition: "transform 0.4s ease-in-out";
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: inherit;
 }
-.carousel .carousel-item img:hover {
-  transform: scale(1.015);
-  filter: brightness(1.06);
+.carousel .carousel-inner .carousel-item img:hover {
+  transform: scale(1.02);
 }
 .carousel .carousel-indicators {
   position: absolute;
   bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  gap: 10px;
-  z-index: 2;
   justify-content: center;
-  padding: 0;
-  margin: 0;
+  gap: 0.5rem;
+  z-index: 2;
+  padding: 0 1rem;
 }
 .carousel .carousel-indicators button {
-  width: 12px;
-  height: 12px;
-  background-color: #bda325;
   border: none;
-  border-radius: 50%;
-  opacity: 0.7;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  padding: 0;
+  background: transparent;
+  opacity: 0.6;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: "opacity 0.3s ease";
+}
+.carousel .carousel-indicators button img {
+  display: block;
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  transition: "border-color 0.3s ease";
 }
 .carousel .carousel-indicators button.active {
-  background-color: #fbc02d;
   opacity: 1;
 }
-.carousel .carousel-indicators button:hover {
-  background-color: rgb(170.1, 146.7, 33.3);
+.carousel .carousel-indicators button.active img {
+  border-color: #bda325;
 }
-.carousel .carousel-control-prev,
-.carousel .carousel-control-next {
-  display: none !important;
+.carousel .carousel-indicators button:hover {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .carousel .carousel-indicators button img {
+    width: 40px;
+    height: 28px;
+  }
 }
 .carousel .carousel-control-prev-icon,
 .carousel .carousel-control-next-icon {
-  display: none !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 1rem;
+  transition: "background-color 0.3s ease";
+}
+.carousel .carousel-control-prev-icon:hover,
+.carousel .carousel-control-next-icon:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.carousel.animate-in {
+  animation: fadeInUp 1s ease-out;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-inner .carousel-item img {
+  height: 60vh;
+}
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item img {
+    height: 40vh;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .carousel-inner .carousel-item img {
+    height: 50vh;
+  }
+}
+@media (min-width: 1200px) {
+  .carousel-inner .carousel-item img {
+    height: 60vh;
+  }
 }
 
 .footer {

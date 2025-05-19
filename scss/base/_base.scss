@@ -165,7 +165,6 @@ img {
   height: auto;
   display: block;
   border-radius: var.$border-radius;
-  transition: transform 0.3s ease;
 
   &:hover {
     transform: scale(1.05);

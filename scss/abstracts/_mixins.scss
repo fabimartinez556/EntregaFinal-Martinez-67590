@@ -26,10 +26,10 @@ $breakpoints: (
 }
 
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
@@ -43,7 +43,7 @@ $breakpoints: (
   } @else if $direction == right {
     animation: slideInRight $duration $timing forwards;
   } @else {
-    @warn "Dirección no soportada: #{$direction}, usando 'left'.";
+    @warn "Dirección no soportada: #{$direction}, se usará 'left' por defecto.";
     animation: slideInLeft $duration $timing forwards;
   }
 }
@@ -106,9 +106,9 @@ $breakpoints: (
         @content;
       }
     } @else {
-      @warn "Tipo de media query no válido: #{$type}. Usa 'min' o 'max'.";
+      @warn "Tipo de media query inválido: '#{$type}'. Usa 'min' o 'max'.";
     }
   } @else {
-    @warn "Breakpoint no definido: #{$breakpoint}";
+    @warn "Breakpoint no definido: '#{$breakpoint}'.";
   }
 }

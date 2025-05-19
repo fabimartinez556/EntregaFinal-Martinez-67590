@@ -2,82 +2,121 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
 
+// Estilos globales para todos los carruseles
 .carousel {
   position: relative;
-  overflow: hidden;
-  border-radius: var.$border-radius;
+  @include mix.transicion-estandar(all, 0.5s, ease-in-out);
 
   .carousel-inner {
-    width: 100%;
-    height: auto;
-  }
+    @include mix.bordes-redondeados(1rem);
+    overflow: hidden;
 
-  .carousel-item {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 1.6s ease-in-out, visibility 0s linear 1.6s;
+    .carousel-item {
+      img {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        @include mix.transicion-estandar(transform, 0.4s, ease-in-out);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        border-radius: inherit;
 
-    &.active {
-      visibility: visible;
-      opacity: 1;
-      transition: opacity 1.6s ease-in-out, visibility 0s linear 0s;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: var.$border-radius;
-      transition: transform 0.8s ease, filter 0.8s ease;
-
-      &:hover {
-        transform: scale(1.015);
-        filter: brightness(1.06);
+        &:hover {
+          transform: scale(1.02);
+        }
       }
     }
   }
 
-.carousel-indicators {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 2;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
+  .carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    z-index: 2;
+    padding: 0 1rem;
 
-  button {
-    width: 12px;
-    height: 12px;
-    background-color: var.$primary;
-    border: none;
-    border-radius: 50%;
-    opacity: 0.7;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
+    button {
+      border: none;
+      padding: 0;
+      background: transparent;
+      opacity: 0.6;
+      border-radius: 4px;
+      overflow: hidden;
+      @include mix.transicion-estandar(opacity, 0.3s, ease);
 
-    &.active {
-      background-color: var.$secondary;
-      opacity: 1;
+      img {
+        display: block;
+        width: 60px;
+        height: 40px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        border-radius: 0.5rem;
+        @include mix.transicion-estandar(border-color, 0.3s, ease);
+      }
+
+      &.active {
+        opacity: 1;
+
+        img {
+          border-color: var.$primary;
+        }
+      }
+
+      &:hover {
+        opacity: 1;
+      }
     }
 
-    &:hover {
-      background-color: color.scale(var.$primary, $lightness: -10%);
+    @media (max-width: 768px) {
+      button img {
+        width: 40px;
+        height: 28px;
+      }
     }
-  }
-}
-
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    display: none !important;
   }
 
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    display: none !important;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 1rem;
+    @include mix.transicion-estandar(background-color, 0.3s, ease);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  &.animate-in {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Alturas responsivas aplicadas a TODOS los carruseles
+.carousel-inner .carousel-item img {
+  height: 60vh;
+
+  @media (max-width: 767px) {
+    height: 40vh;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    height: 50vh;
+  }
+
+  @media (min-width: 1200px) {
+    height: 60vh;
   }
 }
