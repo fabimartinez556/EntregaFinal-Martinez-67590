@@ -9,11 +9,11 @@
 
   .carousel-inner {
     width: 100%;
-    height: auto; // altura ajustada automáticamente al contenido
+    height: auto;
   }
 
   .carousel-item {
-    background-color: #000; // evita destello blanco
+    background-color: var.$body-bg;
     transition: opacity 1.2s ease-in-out;
 
     img {
@@ -23,7 +23,6 @@
       object-fit: cover;
       border-radius: var.$border-radius;
       transition: transform 0.5s ease, filter 0.5s ease;
-      will-change: transform, opacity;
 
       &:hover {
         transform: scale(1.015);
