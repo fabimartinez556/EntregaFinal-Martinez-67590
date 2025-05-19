@@ -13,8 +13,7 @@
   }
 
   .carousel-item {
-    // Elimina estas reglas si usás carousel-fade
-    // Bootstrap ya maneja las opacidades internamente
+    background-color: #000; // evita destello blanco
     transition: opacity 1.2s ease-in-out;
 
     img {
@@ -24,6 +23,7 @@
       object-fit: cover;
       border-radius: var.$border-radius;
       transition: transform 0.5s ease, filter 0.5s ease;
+      will-change: transform, opacity;
 
       &:hover {
         transform: scale(1.015);
@@ -59,7 +59,6 @@
     }
   }
 
-  // Si ocultás los controles, mantené esto
   .carousel-control-prev,
   .carousel-control-next {
     display: none !important;
