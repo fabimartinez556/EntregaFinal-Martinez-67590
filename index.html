@@ -246,36 +246,34 @@
 
         <!-- Comentarios con Formspree y mensaje de agradecimiento -->
 
-<div class="caja mb-5 animate-right">
-  <p>COMENTARIOS</p>
-  <form
-    class="formulario"
-    method="POST"
-    action="https://formspree.io/f/mkgrezzo"
-    id="comentarioForm"
-  >
-    <input type="text" name="nombre" placeholder="Nombre" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="mensaje" placeholder="Escribe tu comentario..." required></textarea>
-    <button type="submit" class="btn btn-warning animate-up">Enviar</button>
-  </form>
-  <div id="mensajeExito" class="alert alert-success mt-3 d-none">
-    ¡Gracias por tu comentario! Lo hemos recibido correctamente.
-  </div>
-</div>
-
-        <div class="caja mb-5 animate-zoom">
-          <p>DISPONIBILIDAD DE ALQUILERES</p>
-          <div class="calendario">
-            <iframe
-              src="https://calendar.google.com/calendar/embed?src=6198c6b438f293d33180e82c46f743024611ef2ff5005b360c039ec8d1057a03%40group.calendar.google.com&amp;ctz=America%2FArgentina%2FBuenos_Aires"
-              style="border: 0"
-              height="400"
-              frameborder="0"
-              scrolling="no"
-            ></iframe>
+        <div class="caja mb-5 animate-right">
+          <p>COMENTARIOS</p>
+          <form
+            class="formulario"
+            method="POST"
+            action="https://formspree.io/f/mkgrezzo"
+            id="comentarioForm"
+          >
+            <input type="text" name="nombre" placeholder="Nombre" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <textarea
+              name="mensaje"
+              placeholder="Escribe tu comentario..."
+              required
+            ></textarea>
+            <button type="submit" class="btn btn-warning animate-up">
+              Enviar
+            </button>
+          </form>
+          <div id="mensajeExito" class="alert alert-success mt-3 d-none">
+            ¡Gracias por tu comentario! Lo hemos recibido correctamente.
           </div>
         </div>
+
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/fabimartinez556/30min" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
       </div>
     </main>
 
@@ -420,34 +418,34 @@
       });
     </script>
     <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("comentarioForm");
-    const mensaje = document.getElementById("mensajeExito");
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("comentarioForm");
+        const mensaje = document.getElementById("mensajeExito");
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = new FormData(form);
 
-      fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            mensaje.classList.remove("d-none");
-            form.reset();
-          } else {
-            alert("Ocurrió un error al enviar el mensaje.");
-          }
-        })
-        .catch(() => {
-          alert("No se pudo enviar el formulario. Intentalo más tarde.");
+          fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: {
+              Accept: "application/json",
+            },
+          })
+            .then((response) => {
+              if (response.ok) {
+                mensaje.classList.remove("d-none");
+                form.reset();
+              } else {
+                alert("Ocurrió un error al enviar el mensaje.");
+              }
+            })
+            .catch(() => {
+              alert("No se pudo enviar el formulario. Intentalo más tarde.");
+            });
         });
-    });
-  });
-</script>
+      });
+    </script>
   </body>
 </html>
