@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,7 @@
     <title>Contacto | Housing Altos Don Bosco</title>
   </head>
   <body class="preload">
-        <header class="bg-dark text-white shadow fixed-top">
+    <header class="bg-dark text-white shadow fixed-top">
       <nav
         class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid px-3 ps-3"
       >
@@ -43,12 +43,12 @@
               <a class="nav-link" href="../index.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="../pages/contacto.html">Contacto</a>
+              <a class="nav-link active" href="../pages/contacto.html"
+                >Contacto</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../pages/imagenes.html"
-                >Imágenes</a
-              >
+              <a class="nav-link" href="../pages/imagenes.html">Imágenes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../pages/videos.html">Videos</a>
@@ -72,7 +72,7 @@
         <div class="col-12 col-md-6 animate-left">
           <h3 class="mb-3">Escríbenos</h3>
           <form
-            action="https://formsubmit.co/fabimartinez556@gmail.com"
+            action="https://formspree.io/f/xldbvllv"
             method="POST"
           >
             <div class="mb-3">
@@ -82,10 +82,11 @@
                 class="form-control"
                 id="nombre"
                 name="nombre"
-                autocomplete="name"
                 required
+                autocomplete="name"
               />
             </div>
+
             <div class="mb-3">
               <label for="email" class="form-label">Correo Electrónico</label>
               <input
@@ -93,10 +94,11 @@
                 class="form-control"
                 id="email"
                 name="email"
-                autocomplete="email"
                 required
+                autocomplete="email"
               />
             </div>
+
             <div class="mb-3">
               <label for="telefono" class="form-label">Teléfono</label>
               <input
@@ -107,6 +109,7 @@
                 autocomplete="tel"
               />
             </div>
+
             <div class="mb-3">
               <label for="mensaje" class="form-label">Mensaje</label>
               <textarea
@@ -117,6 +120,21 @@
                 required
               ></textarea>
             </div>
+
+            <!-- Opcionales de FormSubmit -->
+            <input
+              type="hidden"
+              name="_next"
+              value="https://tusitio.com/gracias.html"
+            />
+            <input
+              type="hidden"
+              name="_subject"
+              value="Nuevo mensaje de contacto"
+            />
+            <input type="text" name="_honey" style="display: none" />
+            <input type="hidden" name="_captcha" value="false" />
+
             <button type="submit" class="btn btn-warning animate-up">
               Enviar
             </button>
@@ -156,7 +174,7 @@
         <h2 class="footer-title">Síguenos</h2>
         <div class="social-icons">
           <a
-            href="https://www.facebook.com/housingaltosdonbosco"
+            href="https://www.facebook.com/fabianmartinez7"
             target="_blank"
             aria-label="Facebook"
             rel="noopener"
@@ -169,7 +187,7 @@
             />
           </a>
           <a
-            href="https://www.instagram.com/housingaltosdonbosco"
+            href="https://www.instagram.com/gruporigoni/"
             target="_blank"
             aria-label="Instagram"
             rel="noopener"
@@ -182,7 +200,7 @@
             />
           </a>
           <a
-            href="https://twitter.com/housingaltosdonbosco"
+            href="https://twitter.com/"
             target="_blank"
             aria-label="Twitter"
             rel="noopener"
@@ -195,7 +213,7 @@
             />
           </a>
           <a
-            href="https://www.linkedin.com/company/housingaltosdonbosco"
+            href="https://www.linkedin.com/"
             target="_blank"
             aria-label="LinkedIn"
             rel="noopener"
