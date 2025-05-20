@@ -244,18 +244,25 @@
           </ul>
         </div>
 
-        <div class="caja mb-5 animate-right">
-          <p>Comentarios</p>
-          <form class="formulario" method="post" action="#">
-            <input type="text" placeholder="Nombre" required />
-            <input type="email" placeholder="Email" required />
-            <textarea
-              placeholder="Escribe tu comentario..."
-              required
-            ></textarea>
-            <button class="btn btn-warning animate-up">Enviar</button>
-          </form>
-        </div>
+        <!-- Comentarios con Formspree y mensaje de agradecimiento -->
+
+<div class="caja mb-5 animate-right">
+  <p>COMENTARIOS</p>
+  <form
+    class="formulario"
+    method="POST"
+    action="https://formspree.io/f/mkgrezzo"
+    id="comentarioForm"
+  >
+    <input type="text" name="nombre" placeholder="Nombre" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <textarea name="mensaje" placeholder="Escribe tu comentario..." required></textarea>
+    <button type="submit" class="btn btn-warning animate-up">Enviar</button>
+  </form>
+  <div id="mensajeExito" class="alert alert-success mt-3 d-none">
+    ¡Gracias por tu comentario! Lo hemos recibido correctamente.
+  </div>
+</div>
 
         <div class="caja mb-5 animate-zoom">
           <p>DISPONIBILIDAD DE ALQUILERES</p>
@@ -412,5 +419,35 @@
         });
       });
     </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("comentarioForm");
+    const mensaje = document.getElementById("mensajeExito");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            mensaje.classList.remove("d-none");
+            form.reset();
+          } else {
+            alert("Ocurrió un error al enviar el mensaje.");
+          }
+        })
+        .catch(() => {
+          alert("No se pudo enviar el formulario. Intentalo más tarde.");
+        });
+    });
+  });
+</script>
   </body>
 </html>
