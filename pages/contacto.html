@@ -97,7 +97,7 @@
       </nav>
     </header>
 
-    <main class="container pt-5 mt-5 animate-in">
+    <main class="container pt-5">
       <h1 class="titulo-principal text-center mb-4">HOUSING ALTOS DON BOSCO</h1>
       <h2 class="text-center text-muted animate-in">Contacto</h2>
 
@@ -147,14 +147,14 @@
                 id="telefono"
                 name="telefono"
                 autocomplete="tel"
-                pattern="^\d{7,15}$"
-                placeholder="Ej: 3525615022"
+                pattern="^[\d\s()+-]{7,20}$"
+                placeholder="Ej: +54 9 3525 615022"
                 required
-                title="Ingrese solo números (mínimo 7 dígitos)"
+                title="Ingrese un número válido (puede incluir +, -, espacios y paréntesis)"
               />
               <div class="invalid-feedback">
-                Ingrese solo números sin el 0 ni el 15 (mínimo 7 dígitos, sin
-                letras ni símbolos).
+                Ingrese un número válido (mínimo 7 caracteres, puede incluir +,
+                -, paréntesis y espacios).
               </div>
             </div>
 
