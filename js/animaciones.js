@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
     document.body.classList.add("loaded");
   });
 
-  // Carrusel (si existe en la página)
+  // Carrusel
   const carouselElement = document.querySelector("#carousel");
   if (carouselElement) {
     const carousel = bootstrap.Carousel.getOrCreateInstance(carouselElement);

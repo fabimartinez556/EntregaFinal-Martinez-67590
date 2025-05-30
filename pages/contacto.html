@@ -105,7 +105,11 @@
         <!-- Formulario -->
         <div class="col-12 col-md-6 animate-left">
           <h3 class="mb-3">Escríbenos</h3>
-          <form action="https://formspree.io/f/xldbvllv" method="POST">
+          <form
+            action="https://formspree.io/f/xldbvllv"
+            method="POST"
+            novalidate
+          >
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre</label>
               <input
@@ -114,8 +118,14 @@
                 id="nombre"
                 name="nombre"
                 required
+                pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{3,50}$"
+                title="Ingrese un nombre válido (solo letras y espacios)"
                 autocomplete="name"
               />
+              <div class="invalid-feedback">
+                Ingrese un nombre válido (solo letras y espacios, mínimo 3
+                caracteres).
+              </div>
             </div>
 
             <div class="mb-3">
@@ -128,6 +138,9 @@
                 required
                 autocomplete="email"
               />
+              <div class="invalid-feedback">
+                Ingrese un correo electrónico válido.
+              </div>
             </div>
 
             <div class="mb-3">
@@ -138,7 +151,14 @@
                 id="telefono"
                 name="telefono"
                 autocomplete="tel"
+                pattern="^\d{7,15}$"
+                required
+                title="Ingrese solo números (mínimo 7 dígitos)"
               />
+              <div class="invalid-feedback">
+                Ingrese solo números sin el 0 ni el 15 (mínimo 7 dígitos, sin
+                letras ni símbolos).
+              </div>
             </div>
 
             <div class="mb-3">
@@ -149,14 +169,23 @@
                 name="mensaje"
                 rows="5"
                 required
+                minlength="10"
+                maxlength="500"
+                title="El mensaje debe tener entre 10 y 500 caracteres"
               ></textarea>
+              <small id="mensajeContador" class="form-text text-muted">
+                0 / 500 caracteres
+              </small>
+              <div class="invalid-feedback">
+                El mensaje debe tener entre 10 y 500 caracteres.
+              </div>
             </div>
 
-            <!-- Opcionales de FormSubmit -->
+            <!-- Campos ocultos -->
             <input
               type="hidden"
               name="_next"
-              value="https://tusitio.com/gracias.html"
+              value="https://www.altosdonbosco.com/gracias.html"
             />
             <input
               type="hidden"
@@ -200,7 +229,6 @@
 
     <!-- Footer -->
     <footer class="footer py-4 mt-5">
-      <!-- Redes Sociales -->
       <div class="col-12 col-md-4 footer-section redes-sociales">
         <h2 class="footer-title">Síguenos</h2>
         <div class="social-icons">
@@ -272,7 +300,6 @@
         </div>
       </div>
 
-      <!-- Créditos -->
       <div class="copyright mt-4 text-center">
         <p class="mb-0">
           &copy; 2025 <strong>Housing Altos Don Bosco</strong>. Todos los
@@ -291,5 +318,41 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/animaciones.js"></script>
+
+    <!-- Validación del formulario -->
+    <script>
+      (() => {
+        "use strict";
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add("was-validated");
+        });
+      })();
+    </script>
+
+    <!-- Validación en tiempo real + contador de caracteres -->
+    <script>
+      const mensajeInput = document.getElementById("mensaje");
+      const contador = document.getElementById("mensajeContador");
+
+      mensajeInput.addEventListener("input", function () {
+        const longitud = mensajeInput.value.length;
+        const esValido = longitud >= 10 && longitud <= 500;
+
+        contador.textContent = `${longitud} / 500 caracteres`;
+
+        if (esValido) {
+          mensajeInput.classList.remove("is-invalid");
+          mensajeInput.classList.add("is-valid");
+        } else {
+          mensajeInput.classList.remove("is-valid");
+          mensajeInput.classList.add("is-invalid");
+        }
+      });
+    </script>
   </body>
 </html>
