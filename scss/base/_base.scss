@@ -30,15 +30,18 @@ body {
 // ==========================
 // ANIMACIÓN CONTROLADA POR JS
 // ==========================
+
 body.preload {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
-body.preload * {
-  transition: none !important;
-  animation: none !important;
-}
+
 body.loaded {
   opacity: 1;
   visibility: visible;
@@ -46,16 +49,12 @@ body.loaded {
 }
 
 // ==========================
-// ANIMACIONES PERSONALIZADAS CON VISIBILIDAD
+// ANIMACIONES PERSONALIZADAS
 // ==========================
 
-.animate-in,
-.animate-left,
-.animate-right,
-.animate-up,
-.animate-zoom {
+// Base de animaciones controladas por IntersectionObserver
+%animate-base {
   opacity: 0;
-  transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 
   &.visible {
@@ -64,21 +63,11 @@ body.loaded {
   }
 }
 
-.animate-left {
-  transform: translateX(-30px);
-}
-
-.animate-right {
-  transform: translateX(30px);
-}
-
-.animate-up {
-  transform: translateY(30px);
-}
-
-.animate-zoom {
-  transform: scale(0.95);
-}
+.animate-in     { @extend %animate-base; transform: translateY(20px); }
+.animate-left   { @extend %animate-base; transform: translateX(-30px); }
+.animate-right  { @extend %animate-base; transform: translateX(30px); }
+.animate-up     { @extend %animate-base; transform: translateY(30px); }
+.animate-zoom   { @extend %animate-base; transform: scale(0.95); }
 
 // ==========================
 // ENLACES
@@ -106,7 +95,18 @@ a {
 
   &:hover {
     background-color: var.$primary-dark;
-    transform: scale(1.1);
+  }
+
+  // Efectos solo para dispositivos con puntero preciso (evita zoom en móviles)
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid var.$secondary;
+    outline-offset: 2px;
   }
 }
 
@@ -166,7 +166,9 @@ img {
   display: block;
   border-radius: var.$border-radius;
 
-  &:hover {
-    transform: scale(1.05);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
