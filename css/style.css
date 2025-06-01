@@ -390,6 +390,11 @@ body {
     display: none;
   }
 }
+@media (max-width: 768px) {
+  .carousel .carousel-item img {
+    box-shadow: none;
+  }
+}
 .carousel .carousel-control-prev-icon,
 .carousel .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.5);
