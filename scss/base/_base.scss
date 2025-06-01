@@ -8,6 +8,7 @@
 
 %btn-base {
   font-family: var.$font-family-base;
+  font-size: var.$font-size-sm; 
   padding: 10px 20px;
   border-radius: var.$border-radius;
   border: none;
@@ -20,6 +21,10 @@
 // ==========================
 // BASE GENERAL
 // ==========================
+html {
+  font-size: var.$font-size-base;
+}
+
 
 body {
   font-family: var.$font-family-base;
