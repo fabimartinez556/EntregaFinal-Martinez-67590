@@ -2,13 +2,12 @@
 // Toast de error reutilizable
 // ==============================
 const toastErrorElement = document.getElementById("toastError");
-const toastError = toastErrorElement
-  ? new bootstrap.Toast(toastErrorElement)
-  : null;
+const toastError = toastErrorElement ? new bootstrap.Toast(toastErrorElement) : null;
+const toastErrorMensaje = document.getElementById("toastErrorMensaje");
 
 function mostrarErrorToast(mensaje) {
   if (toastError) {
-    document.getElementById("toastErrorMensaje").textContent = mensaje;
+    toastErrorMensaje.textContent = mensaje;
     toastError.show();
   }
 }
@@ -19,11 +18,10 @@ function mostrarErrorToast(mensaje) {
 function actualizarBoton(boton, estado) {
   if (estado === "enviando") {
     boton.disabled = true;
-    boton.innerHTML = `
-      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
+    boton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
   } else {
     boton.disabled = false;
-    boton.innerHTML = "Enviar";
+    boton.textContent = "Enviar";
   }
 }
 
@@ -45,11 +43,9 @@ function iniciarCarrusel() {
   const items = carouselElement.querySelectorAll(".carousel-item");
 
   if (items.length > 1) {
-    carouselElement
-      .querySelector(".carousel-inner")
-      ?.addEventListener("click", () => {
-        carousel.next();
-      });
+    carouselElement.querySelector(".carousel-inner")?.addEventListener("click", () => {
+      carousel.next();
+    });
   }
 }
 
@@ -66,11 +62,9 @@ function animacionesConScroll() {
     { threshold: 0.1 }
   );
 
-  document
-    .querySelectorAll(
-      ".animate-in, .animate-left, .animate-right, .animate-up, .animate-zoom"
-    )
-    .forEach((el) => observer.observe(el));
+  document.querySelectorAll(
+    ".animate-in, .animate-left, .animate-right, .animate-up, .animate-zoom"
+  ).forEach((el) => observer.observe(el));
 }
 
 // ==============================
@@ -83,6 +77,48 @@ function validarInput(input) {
   } else {
     input.classList.remove("is-invalid");
     input.classList.add("is-valid");
+  }
+}
+
+function agregarValidacionInputs(inputs) {
+  inputs.forEach((input) => {
+    input.addEventListener("blur", () => validarInput(input));
+  });
+}
+
+// ==============================
+// Función genérica para enviar formulario
+// ==============================
+async function enviarFormulario(form, toast, botonEnviar) {
+  actualizarBoton(botonEnviar, "enviando");
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      form.reset();
+      form.classList.remove("was-validated");
+      form.querySelectorAll("input, textarea").forEach((input) => {
+        input.classList.remove("is-valid", "is-invalid");
+      });
+      if (toast) toast.show();
+      return true;
+    } else {
+      mostrarErrorToast("Error al enviar el formulario. Por favor, intentá de nuevo.");
+      return false;
+    }
+  } catch (error) {
+    mostrarErrorToast("Error de red. Intentalo más tarde.");
+    console.error("Error:", error);
+    return false;
+  } finally {
+    actualizarBoton(botonEnviar, "normal");
   }
 }
 
@@ -100,11 +136,16 @@ function inicializarFormularioContacto() {
   const botonEnviar = form.querySelector('button[type="submit"]');
   const inputs = form.querySelectorAll("input, textarea");
 
+  function validarMensaje() {
+    const length = mensaje.value.trim().length;
+    return length >= 10 && length <= 500;
+  }
+
   mensaje.addEventListener("input", () => {
     const longitud = mensaje.value.length;
     contador.textContent = `${longitud} / 500 caracteres`;
 
-    if (longitud < 10 || longitud > 500) {
+    if (!validarMensaje()) {
       contador.classList.add("text-danger");
       mensaje.classList.add("is-invalid");
       mensaje.classList.remove("is-valid");
@@ -115,9 +156,7 @@ function inicializarFormularioContacto() {
     }
   });
 
-  inputs.forEach((input) => {
-    input.addEventListener("blur", () => validarInput(input));
-  });
+  agregarValidacionInputs(inputs);
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -125,14 +164,12 @@ function inicializarFormularioContacto() {
 
     form.classList.add("was-validated");
     mensaje.value = mensaje.value.trim();
-    const mensajeValido =
-      mensaje.value.length >= 10 && mensaje.value.length <= 500;
 
-    if (!form.checkValidity() || !mensajeValido) {
+    if (!form.checkValidity() || !validarMensaje()) {
       const primerError = form.querySelector(":invalid");
       if (primerError) primerError.focus();
 
-      if (!mensajeValido) {
+      if (!validarMensaje()) {
         mensaje.classList.add("is-invalid");
         mensaje.classList.remove("is-valid");
         mensaje.focus();
@@ -140,34 +177,15 @@ function inicializarFormularioContacto() {
       return;
     }
 
-    actualizarBoton(botonEnviar, "enviando");
+    // Definimos action aquí para que coincida con fetch genérico
+    if (!form.action || form.action === window.location.href) {
+  form.action = "https://formspree.io/f/xldbvllv";
+}
 
-    const formData = new FormData(form);
+    await enviarFormulario(form, toast, botonEnviar);
 
-    try {
-      const response = await fetch("https://formspree.io/f/xldbvllv", {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        form.reset();
-        form.classList.remove("was-validated");
-        contador.textContent = "0 / 500 caracteres";
-        mensaje.classList.remove("is-valid", "is-invalid");
-        if (toast) toast.show();
-      } else {
-        mostrarErrorToast(
-          "Error al enviar el mensaje. Por favor, intentá de nuevo."
-        );
-      }
-    } catch (error) {
-      mostrarErrorToast("Error de red. Intentalo más tarde.");
-      console.error("Error:", error);
-    } finally {
-      actualizarBoton(botonEnviar, "normal");
-    }
+    // Actualizamos contador después de reset
+    contador.textContent = "0 / 500 caracteres";
   });
 }
 
@@ -183,9 +201,7 @@ function manejarFormularioComentario() {
   const botonEnviar = form.querySelector('button[type="submit"]');
   const inputs = form.querySelectorAll("input, textarea");
 
-  inputs.forEach((input) => {
-    input.addEventListener("blur", () => validarInput(input));
-  });
+  agregarValidacionInputs(inputs);
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -199,35 +215,7 @@ function manejarFormularioComentario() {
       return;
     }
 
-    actualizarBoton(botonEnviar, "enviando");
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        form.reset();
-        form.classList.remove("was-validated");
-        inputs.forEach((input) =>
-          input.classList.remove("is-valid", "is-invalid")
-        );
-        if (toast) toast.show();
-      } else {
-        mostrarErrorToast(
-          "Error al enviar el comentario. Por favor, intentá de nuevo."
-        );
-      }
-    } catch (error) {
-      mostrarErrorToast("Error de red. Intentalo más tarde.");
-      console.error("Error:", error);
-    } finally {
-      actualizarBoton(botonEnviar, "normal");
-    }
+    await enviarFormulario(form, toast, botonEnviar);
   });
 }
 

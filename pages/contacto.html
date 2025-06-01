@@ -147,7 +147,7 @@
                 id="telefono"
                 name="telefono"
                 autocomplete="tel"
-                pattern="^[\d\s()+-]{7,20}$"
+                pattern="^[\d\s()+\-]{7,20}$"
                 placeholder="Ej: +54 9 3525 615022"
                 required
                 title="Ingrese un número válido (puede incluir +, -, espacios y paréntesis)"
@@ -185,8 +185,14 @@
               name="_subject"
               value="Nuevo mensaje de contacto"
             />
-            <input type="text" name="_honey" style="display: none" />
-            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="text"
+              name="_honey"
+              tabindex="-1"
+              autocomplete="off"
+              style="position: absolute; left: -9999px"
+              aria-hidden="true"
+            />
 
             <button type="submit" class="btn btn-warning animate-up">
               Enviar
@@ -319,7 +325,6 @@
         id="toastEnvio"
         class="toast align-items-center text-white bg-success border-0"
         role="alert"
-        aria-live="assertive"
         aria-live="polite"
         aria-atomic="true"
         data-bs-delay="4000"
