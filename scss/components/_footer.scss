@@ -8,6 +8,9 @@
   font-size: 0.95rem;
   font-family: var.$font-family-base;
 
+// ==========================
+  // Título de sección
+// ==========================
   h2.footer-title {
     font-size: 1.1rem;
     margin-bottom: 1rem;
@@ -18,6 +21,9 @@
     font-family: var.$headings-font-family;
   }
 
+// ==========================
+  // Secciones del footer
+// ==========================
   .footer-section {
     margin-bottom: 2rem;
 
@@ -42,6 +48,9 @@
     }
   }
 
+ // ==========================
+  // Redes sociales
+// ==========================
   .redes-sociales {
     display: flex;
     flex-direction: column;
@@ -59,11 +68,12 @@
       @include mix.bordes-redondeados(50%);
       @include mix.transicion-estandar(transform, filter, box-shadow);
 
-      width: 50px;
-      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      width: 50px;
+      height: 50px;
 
       &:hover {
         transform: scale(1.15) rotate(-3deg);
@@ -86,76 +96,82 @@
       }
     }
 
-    // Redes individuales
-    & {
-      .btn-facebook {
-        background-color: var.$facebook;
+ // ==========================
+  // Botones individuales
+// ==========================
+    .btn-facebook {
+      background-color: var.$facebook;
 
-        &:hover {
-          box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$facebook-rgb, 0.6);
-        }
+      &:hover {
+        box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$facebook-rgb, 0.6);
+      }
+    }
+
+    .btn-instagram {
+      background-color: var.$instagram;
+
+      &:hover {
+        box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$instagram-rgb, 0.6);
+      }
+    }
+
+    .btn-twitter {
+      background-color: var.$twitter;
+
+      &:hover {
+        box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$twitter-rgb, 0.6);
+      }
+    }
+
+    .btn-linkedin {
+      background-color: var.$linkedin;
+
+      &:hover {
+        box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$linkedin-rgb, 0.6);
+      }
+    }
+
+    .btn-whatsapp {
+      background-color: var.$whatsapp;
+
+      &:hover {
+        box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$whatsapp-rgb, 0.6);
+      }
+    }
+
+ // ==========================
+  // Iconos SVG
+// ==========================
+    .social-icon {
+      filter: invert(1);
+      width: 22px;
+      height: 22px;
+      transition: transform 0.3s ease;
+
+      @media (min-width: var.$break-md) {
+        width: 26px;
+        height: 26px;
       }
 
-      .btn-instagram {
-        background-color: var.$instagram;
-
-        &:hover {
-          box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$instagram-rgb, 0.6);
-        }
+      @media (min-width: var.$break-xl) {
+        width: 30px;
+        height: 30px;
       }
 
-      .btn-twitter {
-        background-color: var.$twitter;
-
-        &:hover {
-          box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$twitter-rgb, 0.6);
-        }
+      @media (max-width: var.$break-sm) {
+        width: 18px;
+        height: 18px;
       }
 
-      .btn-linkedin {
-        background-color: var.$linkedin;
-
-        &:hover {
-          box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$linkedin-rgb, 0.6);
-        }
-      }
-
-      .btn-whatsapp {
-        background-color: var.$whatsapp;
-
-        &:hover {
-          box-shadow: var.$hover-shadow-base, 0 4px 12px rgba(var.$whatsapp-rgb, 0.6);
-        }
-      }
-
-      .social-icon {
-        filter: invert(1);
-        width: 22px;
-        height: 22px;
-        transition: transform 0.3s ease;
-
-        @media (min-width: var.$break-md) {
-          width: 26px;
-          height: 26px;
-        }
-
-        @media (min-width: var.$break-xl) {
-          width: 30px;
-          height: 30px;
-        }
-
-        @media (max-width: var.$break-sm) {
-          width: 18px;
-          height: 18px;
-        }
-
-        a:hover & {
-          transform: scale(1.1);
-        }
+      a:hover & {
+        transform: scale(1.1);
       }
     }
   }
 
+ // ==========================
+  // Derechos de autor
+// ==========================
   .copyright {
     text-align: center;
     margin-top: 2rem;

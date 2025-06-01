@@ -1,8 +1,8 @@
-// Toast de error reutilizable para ambos formularios
+// ==============================
+// Toast de error reutilizable
+// ==============================
 const toastErrorElement = document.getElementById("toastError");
-const toastError = toastErrorElement
-  ? new bootstrap.Toast(toastErrorElement)
-  : null;
+const toastError = toastErrorElement ? new bootstrap.Toast(toastErrorElement) : null;
 
 function mostrarErrorToast(mensaje) {
   if (toastError) {
@@ -11,10 +11,14 @@ function mostrarErrorToast(mensaje) {
   }
 }
 
+// ==============================
+// Utilidades generales
+// ==============================
 function actualizarBoton(boton, estado) {
   if (estado === "enviando") {
     boton.disabled = true;
-    boton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
+    boton.innerHTML = `
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
   } else {
     boton.disabled = false;
     boton.innerHTML = "Enviar";
@@ -28,18 +32,20 @@ function quitarPreload() {
   });
 }
 
+// ==============================
+// Animaciones
+// ==============================
 function iniciarCarrusel() {
   const carouselElement = document.querySelector("#carousel");
   if (!carouselElement) return;
 
   const carousel = bootstrap.Carousel.getOrCreateInstance(carouselElement);
   const items = carouselElement.querySelectorAll(".carousel-item");
+
   if (items.length > 1) {
-    carouselElement
-      .querySelector(".carousel-inner")
-      ?.addEventListener("click", () => {
-        carousel.next();
-      });
+    carouselElement.querySelector(".carousel-inner")?.addEventListener("click", () => {
+      carousel.next();
+    });
   }
 }
 
@@ -56,13 +62,14 @@ function animacionesConScroll() {
     { threshold: 0.1 }
   );
 
-  document
-    .querySelectorAll(
-      ".animate-in, .animate-left, .animate-right, .animate-up, .animate-zoom"
-    )
-    .forEach((el) => observer.observe(el));
+  document.querySelectorAll(
+    ".animate-in, .animate-left, .animate-right, .animate-up, .animate-zoom"
+  ).forEach((el) => observer.observe(el));
 }
 
+// ==============================
+// Validaciones
+// ==============================
 function validarInput(input) {
   if (!input.checkValidity()) {
     input.classList.add("is-invalid");
@@ -73,6 +80,9 @@ function validarInput(input) {
   }
 }
 
+// ==============================
+// Formulario de Contacto
+// ==============================
 function inicializarFormularioContacto() {
   const form = document.getElementById("formularioContacto");
   if (!form) return;
@@ -109,12 +119,12 @@ function inicializarFormularioContacto() {
 
     form.classList.add("was-validated");
     mensaje.value = mensaje.value.trim();
-    const mensajeValido =
-      mensaje.value.length >= 10 && mensaje.value.length <= 500;
+    const mensajeValido = mensaje.value.length >= 10 && mensaje.value.length <= 500;
 
     if (!form.checkValidity() || !mensajeValido) {
       const primerError = form.querySelector(":invalid");
       if (primerError) primerError.focus();
+
       if (!mensajeValido) {
         mensaje.classList.add("is-invalid");
         mensaje.classList.remove("is-valid");
@@ -141,9 +151,7 @@ function inicializarFormularioContacto() {
         mensaje.classList.remove("is-valid", "is-invalid");
         if (toast) toast.show();
       } else {
-        mostrarErrorToast(
-          "Error al enviar el mensaje. Por favor, intentá de nuevo."
-        );
+        mostrarErrorToast("Error al enviar el mensaje. Por favor, intentá de nuevo.");
       }
     } catch (error) {
       mostrarErrorToast("Error de red. Intentalo más tarde.");
@@ -154,6 +162,9 @@ function inicializarFormularioContacto() {
   });
 }
 
+// ==============================
+// Formulario de Comentario
+// ==============================
 function manejarFormularioComentario() {
   const form = document.getElementById("comentarioForm");
   if (!form) return;
@@ -172,6 +183,7 @@ function manejarFormularioComentario() {
     e.stopPropagation();
 
     form.classList.add("was-validated");
+
     if (!form.checkValidity()) {
       const primerError = form.querySelector(":invalid");
       if (primerError) primerError.focus();
@@ -197,9 +209,7 @@ function manejarFormularioComentario() {
         );
         if (toast) toast.show();
       } else {
-        mostrarErrorToast(
-          "Error al enviar el comentario. Por favor, intentá de nuevo."
-        );
+        mostrarErrorToast("Error al enviar el comentario. Por favor, intentá de nuevo.");
       }
     } catch (error) {
       mostrarErrorToast("Error de red. Intentalo más tarde.");
@@ -210,6 +220,9 @@ function manejarFormularioComentario() {
   });
 }
 
+// ==============================
+// Inicialización al cargar
+// ==============================
 window.addEventListener("load", () => {
   quitarPreload();
   iniciarCarrusel();
