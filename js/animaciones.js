@@ -222,7 +222,7 @@ function manejarFormularioComentario() {
 // ==============================
 // Inicialización al cargar
 // ==============================
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   quitarPreload();
   iniciarCarrusel();
   animacionesConScroll();
